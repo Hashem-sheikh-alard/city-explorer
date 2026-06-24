@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta charset="UTF-8">
+           <meta name="description" content="City Explorer helps you discover cities around the world through places, culture, food, parks, museums, shopping, and events.">
+    <title>City Explorer | Discover Cities Worldwide</title>
+        <link href="events.css" rel="stylesheet">
+        
+    </head>
+    <body>
+
+
+        <header>
+              <nav aria-label="Main navigation">
+                 <a href="index.html" class="logo">City Explorer</a>
+
+        <ul>
+<li><a href="places.html">Places</a></li>
+<li><a href="places-details.html.html">Places-details</a></li>
+<li><a href="discover.html">Events</a></li>
+<li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Explore Events &amp; Places Near You</h1>
+      <p>Browse upcoming events and local attractions. Hit refresh to reload data from the API.</p>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+
+      <div class="controls">
+        <p id="itemCount"></p>
+        <button id="refreshBtn">&#x21bb; Refresh</button>
+      </div>
+
+      <p id="statusMsg"></p>
+
+      <div id="eventsGrid"></div>
+
+    </div>
+    <div class="city-buttons">
+  <button id="amsterdamBtn">Amsterdam</button>
+  <button id="budapestBtn">Budapest</button>
+  <button id="ammanBtn">Amman</button>
+  <button id="schwarzseeBtn">Schwarzsee</button>
+</div>
+  </main>
+
+  <footer id="contact">
+        <p>&copy; 2026 City Explorer. All rights reserved.</p>
+    </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

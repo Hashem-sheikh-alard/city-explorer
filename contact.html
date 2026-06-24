@@ -1,0 +1,173 @@
+const grid = document.querySelector("#eventsGrid");
+const statusMsg = document.querySelector("#statusMsg");
+const itemCount = document.querySelector("#itemCount");
+const refreshBtn = document.querySelector("#refreshBtn");
+//
+const API_KEY = "5129ed88bf2045308086503c14ead7e1";
+
+const wantedPlaces = [
+  {
+    label: "Schwarzsee",
+    searchName: "Schwarzsee",
+    city: "Schwarzsee",
+    lat: 46.6706,
+    lon: 7.2885,
+    fallback: {
+      name: "Schwarzsee",
+      category: "Nature",
+      type: "Lake & Mountain Area",
+      location: "Schwarzsee, Switzerland",
+      description: "A beautiful alpine lake with mountain views.",
+      image: "Assets/schwarzsee 2.jpeg",
+      url: "https://www.tripadvisor.com/Search?q=Schwarzsee%20Switzerland"
+    }
+  },
+  {
+    label: "Amsterdam Canal District",
+    searchName: "Canal District",
+    city: "Amsterdam",
+    lat: 52.3731,
+    lon: 4.9003,
+    fallback: {
+      name: "Amsterdam Canal District",
+      category: "Architecture",
+      type: "Historic Area",
+      location: "Amsterdam, Netherlands",
+      description: "A famous canal district with historic buildings.",
+      image: "Assets/amscanal.jpeg",
+      url: "https://www.tripadvisor.com/Search?q=Amsterdam%20Canal%20District"
+    }
+  },
+  {
+    label: "Budapest Parliament",
+    searchName: "Parliament",
+    city: "Budapest",
+    lat: 47.4979,
+    lon: 19.0402,
+    fallback: {
+      name: "Budapest Parliament",
+      category: "History",
+      type: "Landmark",
+      location: "Budapest, Hungary",
+      description: "One of Europe’s most iconic parliament buildings.",
+      image: "Assets/parl-2.jpeg",
+      url: "https://www.tripadvisor.com/Search?q=Budapest%20Parliament"
+    }
+  },
+  {
+    label: "Roman Theater",
+    searchName: "Roman Theater",
+    city: "Amman",
+    lat: 31.9539,
+    lon: 35.9106,
+    fallback: {
+      name: "Roman Theater",
+      category: "History",
+      type: "Historic Site",
+      location: "Amman, Jordan",
+      description: "A famous Roman amphitheater in Amman.",
+      image: "Assets/amman-roman theater 2.jfif",
+      url: "https://www.tripadvisor.com/Search?q=Roman%20Theater%20Amman"
+    }
+  },
+  {
+    label: "Amman Citadel",
+    searchName: "Citadel",
+    city: "Amman",
+    lat: 31.9539,
+    lon: 35.9106,
+    fallback: {
+      name: "Amman Citadel",
+      category: "History",
+      type: "Historic Site",
+      location: "Amman, Jordan",
+      description: "A major historical site overlooking the city of Amman.",
+      image: "Assets/amman-citadel.jpg",
+      url: "https://www.tripadvisor.com/Search?q=Amman%20Citadel%20Jordan"
+    }
+  }
+];
+
+function makeUrl(place) {
+  return `https://api.geoapify.com/v2/places?categories=tourism.sights,tourism.attraction,natural&name=${encodeURIComponent(place.searchName)}&filter=circle:${place.lon},${place.lat},5000&limit=1&apiKey=${API_KEY}`;
+}
+
+function renderCards(items) {
+  grid.innerHTML = "";
+
+  if (!items.length) {
+    statusMsg.textContent = "No places found.";
+    itemCount.textContent = "0 items";
+    return;
+  }
+
+  statusMsg.textContent = "";
+  itemCount.textContent = `Showing ${items.length} places`;
+
+  items.forEach(item => {
+    const card = document.createElement("article");
+    card.className = "event-card";
+
+    card.innerHTML = `
+      <div class="card-image">
+        <img src="${item.image}" alt="${item.name}">
+      </div>
+      <div class="card-body">
+        <span class="card-category">${item.category}</span>
+        <h2 class="card-title">${item.name}</h2>
+        <div class="card-meta">
+          <span>Type: ${item.type}</span>
+          <span>Location: ${item.location}</span>
+        </div>
+        <p class="card-description">${item.description}</p>
+      </div>
+      <div class="card-footer">
+        <a class="card-link" href="${item.url}" target="_blank" rel="noopener noreferrer">Learn more</a>
+      </div>
+    `;
+
+    grid.appendChild(card);
+  });
+}
+
+async function fetchOnePlace(place) {
+  try {
+    const response = await fetch(makeUrl(place));
+    if (!response.ok) throw new Error("API error");
+
+    const data = await response.json();
+    const feature = data.features && data.features[0];
+
+    if (!feature) return place.fallback;
+
+    return {
+      name: feature.properties.name || place.fallback.name,
+      category: "Tourism",
+      type: feature.properties.categories?.[0] || place.fallback.type,
+      location:
+        feature.properties.city ||
+        feature.properties.state ||
+        feature.properties.country ||
+        place.fallback.location,
+      description: feature.properties.formatted || place.fallback.description,
+      image: place.fallback.image,
+      url:
+        "https://www.tripadvisor.com/Search?q=" +
+        encodeURIComponent(feature.properties.name || place.fallback.name)
+    };
+  } catch (error) {
+    return place.fallback;
+  }
+}
+
+async function loadPlaces() {
+  statusMsg.textContent = "Loading...";
+  itemCount.textContent = "";
+  grid.innerHTML = "";
+
+  const results = await Promise.all(wantedPlaces.map(fetchOnePlace));
+  renderCards(results);
+}
+
+refreshBtn.addEventListener("click", loadPlaces);
+window.addEventListener("load", loadPlaces);

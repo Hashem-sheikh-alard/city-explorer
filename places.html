@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>City Explorer</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" width="device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="places.css">
+    </head>
+    <body>
+       <header>
+              <nav aria-label="Main navigation">
+                 <a href="index.html" class="logo">City Explorer</a>
+
+        <ul>
+<li><a href="places.html">Places</a></li>
+<li><a href="places-details.html.html">Places-details</a></li>
+<li><a href="discover.html">Events</a></li>
+<li><a href="contact.html">Contact</a></li>
+
+    </ul>
+  </nav>
+
+         
+       
+    
+    
+
+    </header>
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Expolore the magestic hidden gems in our World</h1>
+        <p>There are many beautiful cities to explore. Take a look 
+        below to discover various breath-taking destinations and 
+        learn more about each place and what makes it special.</p> 
+        <h2>Click the links below to see more details.</h2>
+
+        </div>
+    </section>
+    <div class="searchSort">
+    <div class="searchbar" >
+        <input type="text" placeholder="Search Places.." name="search" id="searchinput">
+        <button type="submit" id="searchbutton">
+            <img src="Assets/searchlogo.jpg" alt="search logo" class="searchlogo" >
+        </button>
+        </div>
+        
+        <select id="sortSelect">
+  <option value="default">Sort</option>
+  <option value="alphaAZ">Alphabetical (A-Z)</option>
+  <option value="alphaZA">Alphabetical (Z-A)</option>
+  <option value="ratingLH">Rating (Low → High)</option>
+  <option value="ratingHL">Rating (High → Low)</option>
+
+</select>
+</div>
+    <div class="intro">
+    
+        
+        <div class="allcards" id="allcards">
+        
+        <div class="cards" data-name="Roman Theatre" data-rating="4.3">
+            <img src="Assets/romanTheatre.jpg" alt="Roman Theatre" class="gallery">
+            <div class="text">
+            <h2>Roman Theatre</h2> <br>
+            <p>Category: Theatre</p>
+            <p>Rating: 4.3 <span class="stars">★★★★☆</span></p> <br>
+            <p>The Roman Theatre in downtown Amman, Jordan. Built in the 
+                2nd century AD when the city was known as Philadelphia. This ancient theatre 
+                reflects the grandeur of Roman urban life. Visitors can  
+                enjoy views over the city, and visit small museums.
+                Several cultural events are hosted there as well.</p> <br> <hr> <br>
+            <a href="place-details.html" target="_blank">Click For More Details</a>
+            </div>
+        </div>
+        <div class="cards" data-name="Parliament Building" data-rating="4.6">
+            <img src="Assets/parl-2.jpeg" alt="Parliament Building" class="gallery">
+            <div class="text">
+            <h2>Parliament Building</h2> <br>
+            <p>Category: Historical Monument</p>
+            <p>Rating: 4.6 <span class="stars">★★★★☆</span></p> <br>
+            <p>The Hungarian Parliament Building is located along the Danube River in 
+                central Budapest. Built in the late 19th century, it is one of Hungary's 
+                most important national symbols. Visitors can admire its grand architecture, 
+                take guided tours inside, and enjoy beautiful river views.</p> <br> <hr> <br>
+            <a href="place-details.html" target="_blank">Click For More Details</a>
+            </div>
+        </div>
+        <div class="cards" data-name="Canal District" data-rating="4.3">
+            <img src="Assets/canalDistrict.jpg" alt="Canal District" class="gallery">
+            <div class="text">
+            <h2>Canal District</h2> <br>
+            <p>Category: District</p>
+            <p>Rating: 4.3 <span class="stars">★★★★☆</span></p> <br>
+            <p>The Canal District is located in the heart of Amsterdam. Built mainly during the 
+                17th century, and it is now a UNESCO World Heritage site. Visitors enjoy scenic canals, 
+                 historic houses and bridges.</p> <br> <hr> <br>
+            <a href="place-details.html" target="_blank">Click For More Details</a>
+            </div>
+        </div>
+        <div class="cards" data-name="Schwarzsee Mountains" data-rating="4.7">
+            <img src="Assets/schwarzsee.avif" alt="Schwarzee Mountains" class="gallery">
+            <div class="text">
+            <h2>Schwarzsee Mountains</h2> <br>
+            <p>Category: Mountains</p>
+            <p>Rating: 4.7 <span class="stars">★★★★☆</span></p> <br>
+            <p>The Schwarzsee Mountains are located above Zermatt, Valais, Switzerland. 
+                The area has a long history connected to traditional villages and nature tourism. Visitors can hike, enjoy 
+                lake views, and explore forest trails.</p> <br> <hr> <br>
+            <a href="place-details.html" target="_blank">Click For More Details</a>
+            </div>
+        </div>
+        <div class="cards" data-name="Fabrique Lumieres" data-rating="4.6">
+            <img src="Assets/exhibitionSea.jpg" alt="Fabrique-Lumieres" class="gallery">
+            <div class="text">
+            <h2>Fabrique Lumieres</h2> <br>
+            <p>Category: Art Center</p>
+            <p>Rating: 4.6 <span class="stars">★★★★☆</span></p> <br>
+            <p>Fabrique des Lumières is located in the Westergas area of Amsterdam. 
+                It is a modern digital art center known for transforming 
+                large spaces into exhibitions. Visitors can experience moving projections of 
+                famous artworks with music, perfect for all ages.</p> <br> <hr> <br>
+            <a href="place-details.html" target="_blank">Click For More Details</a>
+            </div>
+        </div>
+        <div class="cards" data-name="Fisherman's Bastion" data-rating="4.6">
+            <img src="Assets/fishermans.webp" alt="The Fisherman's Bastion" class="gallery">
+            <div class="text">
+            <h2>The Fisherman's Bastion</h2> <br>
+            <p>Category: Historical Monument</p>
+            <p>Rating: 4.6 <span class="stars">★★★★☆</span></p> <br>
+            <p>Fisherman's Bastion is located on Castle Hill in Budapest. Built in the late 19th century, 
+               it was designed as a viewing terrace and symbolizes the city's medieval past. Visitors come for its towers, 
+               white stone design, and panoramic views of the Danube and Parliament.</p> <br> <hr> <br>
+            <a href="place-details.html" target="_blank">Click For More Details</a>
+            </div>
+        </div>
+        <div class="cards" data-name="New York Cafe Budapest" data-rating="4.1">
+            <img src="Assets/newYorkCafe.webp" alt="New York Cafe Budapest" class="gallery">
+            <div class="text">
+            <h2>The New York Cafe in Budapest</h2> <br>
+            <p>Category: Cafe</p>
+            <p>Rating: 4.1 <span class="stars">★★★★☆</span></p> <br>
+            <p>The New York Café is located in central Budapest on Erzsébet körút, 
+                easily accessible by public transport. It became a famous gathering place for 
+                writers and artists. Today, visitors enjoy its elegant interior
+                and coffee and desserts. The atmosphere is luxurious and memorable.</p> <br> <hr> <br>
+            <a href="place-details.html" target="_blank">Click For More Details</a>
+            </div>
+        </div>
+        <div class="cards" data-name="RijksMuseum" data-rating="4.7">
+           <img src="Assets/museum1.jpg" alt="rijksmuseum" class="gallery">
+            <div class="text">
+            <h2>RijksMuseum</h2> <br>
+            <p>Category:Museum</p> 
+            <p>Rating: 4.7 <span class="stars">★★★★✬</span></p> <br>
+            <p>The Rijksmuseum in Amsterdam is the Netherlands'
+                premier art and history museum. It houses masterpieces from Dutch Golden 
+                Age painters like Rembrandt and Vermeer, offering visitors a captivating 
+                journey through centuries of art and culture.</p> <br> <hr> <br>
+            <a href="place-details.html" target="_blank">Click For More Details</a>
+
+            </div>
+        </div>
+        <div class="cards" data-name="Swiss National Prak" data-rating="4.8">
+            <img src="Assets/swisspark.jpg" alt="The Swiss National Park" class="gallery">
+            <div class="text">
+            <h2>The Swiss National Park</h2> <br>
+            <p>Category:Park</p>
+            <p>Rating: 4.8 <span class="stars">★★★★✬</span></p> <br>
+            <p>The Swiss National Park in the Apls is Switzerland's oldest protected place. The park is easily 
+                reached by train from major cities. It offers
+                breath-taking landscapes of mountains and forests. Visitors can enjoy hiking, 
+                connect with the nature and enjoy the peaceful environment.
+            </p><br> <hr> <br>
+            <a href="place-details.html" target="_blank">Click For More Details</a>
+            </div>
+        </div>
+        <div class="cards" data-name="Rhine Falls" data-rating="4.7">
+            <img src="Assets/swifalls.webp" alt="Rheinfalls" class="gallery">
+            <div class="text">
+            <h2>Rhine Falls</h2> <br>
+            <p>Category:Waterfall</p>
+            <p>Rating: 4.7 <span class="stars">★★★★✬</span></p> <br>
+            <p>The Rhine Falls are located near Schaffhausen, Switzerland. They are one of Europe's largest waterfalls 
+                and have been a natural landmark for thousands of years. Visitors can view the falls from platforms, 
+                take boat rides close to the water, and enjoy the walking paths.</p> <br> <hr> <br>
+            <a href="place-details.html" target="_blank">Click For More Details</a>
+            </div>
+        </div>
+        <div class="cards" data-name="Budapest Opettera Theatre" data-rating="4.8">
+            <img src="Assets/opettera.webp" alt="Opettera" class="gallery">
+            <div class="text">
+            <h2>The Budapest Opettera Theatre</h2> <br>
+            <p>Category: Theatre</p>
+            <p>Rating: 4.8 <span class="stars">★★★★✬</span></p> <br>
+            <p>The Budapest Operetta Theatre is located in central Budapest. It was opened in the early 20th 
+                century and is known for its role in Hungarian musical theatre. Visitors can 
+                watch breath-taking  operettas and musicals in an elegant, historical setting.</p> <br> <hr> <br>
+            <a href="place-details.html" target="_blank">Click For More Details</a>
+            </div>
+        </div>
+        <div class="cards" data-name="Lindt Home of Chocolate" data-rating="4.6">
+            <img src="Assets/lindt.jpg" alt="Lindt Chocolate Factory" class="gallery">
+            <div class="text">
+            <h2>Lindt Home of Chocolate</h2> <br>
+            <p>Category: Museum</p>
+            <p>Rating: 4.6 <span class="stars">★★★★☆</span></p> <br>
+            <p>The Lindt Home of Chocolate is located in Kilchberg, near Zurich, Switzerland. It is the official 
+                visitor center of the Lindt brand, opened in 2020. Visitors can learn about chocolate production
+                 and taste one of the world's best chocolate.</p> <br> <hr> <br>
+            <a href="place-details.html" target="_blank">Click For More Details</a>
+            </div>
+        </div>
+    </div>
+        
+         <footer id="contact">
+        <p>&copy; 2026 City Explorer. All rights reserved.</p>
+    </footer>
+    <script src="places.js"></script>
+    </body>
+</html>
